@@ -58,6 +58,9 @@ def tap(x, y):
         hide[mark] = False
         state['mark'] = None
 
+        if all(not tile for tile in hide):
+            print("Ganaste")
+
 
 def draw():
     """Draw image and tiles."""
