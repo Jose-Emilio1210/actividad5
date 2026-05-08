@@ -1,13 +1,4 @@
-"""Memory, puzzle game of number pairs.
-
-Exercises:
-
-1. Count and print how many taps occur.
-2. Decrease the number of tiles to a 4x4 grid.
-3. Detect when all tiles are revealed.
-4. Center single-digit tile.
-5. Use letters instead of tiles.
-"""
+"""Memory, puzzle game of word pairs."""
 
 from random import *
 from turtle import *
@@ -17,6 +8,54 @@ from freegames import path
 car = path('car.gif')
 tiles = list(range(32)) * 2
 state = {'mark': None, 'taps': 0}
+
+tiles = [
+    'sol', 'luna', 'mar', 'flor',
+    'gato', 'pez', 'ave', 'oso',
+    'rojo', 'azul', 'casa', 'auto',
+    'pan', 'té', 'rey', 'nube',
+    'libro', 'hoja', 'fuego', 'agua',
+    'oro', 'copa', 'tren', 'mesa',
+    'silla', 'mano', 'ojo', 'pie',
+    'río', 'luz', 'sal', 'uva'
+] * 2
+
+colors = {
+    'sol': 'orange',
+    'luna': 'gray',
+    'mar': 'blue',
+    'flor': 'pink',
+    'gato': 'purple',
+    'pez': 'deepskyblue',
+    'ave': 'gold',
+    'oso': 'brown',
+    'rojo': 'red',
+    'azul': 'blue',
+    'casa': 'darkred',
+    'auto': 'black',
+    'pan': 'sandybrown',
+    'té': 'green',
+    'rey': 'gold',
+    'nube': 'gray',
+    'libro': 'navy',
+    'hoja': 'green',
+    'fuego': 'red',
+    'agua': 'cyan',
+    'oro': 'gold',
+    'copa': 'purple',
+    'tren': 'darkgreen',
+    'mesa': 'sienna',
+    'silla': 'chocolate',
+    'mano': 'tan',
+    'ojo': 'darkblue',
+    'pie': 'peru',
+    'río': 'dodgerblue',
+    'luz': 'orange',
+    'sal': 'black',
+    'uva': 'violet'
+}
+
+state = {'mark': None}
 hide = [True] * 64
 
 
@@ -78,10 +117,12 @@ def draw():
 
     if mark is not None and hide[mark]:
         x, y = xy(mark)
+        palabra = tiles[mark]
+
         up()
-        goto(x + 2, y)
-        color('black')
-        write(tiles[mark], font=('Arial', 30, 'normal'))
+        goto(x + 25, y + 15)
+        color(colors[palabra])
+        write(palabra, align='center', font=('Arial', 12, 'bold'))
 
     update()
     ontimer(draw, 100)
