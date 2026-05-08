@@ -1,6 +1,6 @@
 #Original de memory.py
 
-# Paint Shapes
+# Memory
 
 Programa realizado en Python utilizando Turtle de un juego de memorama.
 
